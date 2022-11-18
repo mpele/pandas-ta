@@ -62,8 +62,8 @@ Calculation:
     Default Inputs:
         length=10, adjust=False, sma=True
     if sma:
-        sma_nth = close[0:length].sum() / length
-        close[:length - 1] = np.NaN
+        sma_nth = close.iloc[0:length].sum() / length
+        close.iloc[:length - 1] = np.NaN
         close.iloc[length - 1] = sma_nth
     EMA = close.ewm(span=length, adjust=adjust).mean()
 
